@@ -26,7 +26,8 @@ void binario(int resultado){
 
 void complementoa2(int resultado){
   int sinal = resultado;
-  int resto, x, array[16], i=0;
+  int resto, x, i=0;
+  int array[16] = {0}; 
   while(resultado != 0){
     resto = resultado%2;
     x = resultado/2;
@@ -38,7 +39,6 @@ void complementoa2(int resultado){
     }
     i++;
   }
-  i=15;
   int array2[16];
   for(int j=0;j<i;j++){
     if(array[j] == 0){
@@ -57,9 +57,9 @@ void complementoa2(int resultado){
     }
   }
   if(sinal<0){
-    array2[i] = 1;
+    array2[15] = 1;
   }
-  for(int j=i;j>=0;j--){
+  for(int j=15;j>=0;j--){
     printf("%d",array2[j]);
   }
 }
