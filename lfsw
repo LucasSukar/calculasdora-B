@@ -19,6 +19,46 @@ void binario(int resultado){
   }
 }
 
+void complementoa2(int resultado){
+  int sinal = resultado;
+  int resto, x, array[16], i=0;
+  while(resultado != 0){
+    resto = resultado%2;
+    x = resultado/2;
+    array[i] = resto;
+    if(resto != 0){
+      resultado = resultado-x-resto;
+    } else{
+      resultado = resultado-x;
+    }
+    i++;
+  }
+  i=15;
+  int array2[16];
+  for(int j=0;j<i;j++){
+    if(array[j] == 0){
+      array2[j] = 1;
+    }
+    else{
+      array2[j] = 0;
+    }
+  }  
+  for(int j=0;j<i;j++){
+    if (array2[j] == 0) {
+      array2[j] = 1;
+      break;
+    } else {
+      array2[j] = 0;
+    }
+  }
+  if(sinal<0){
+    array2[i] = 1;
+  }
+  for(int j=i;j>=0;j--){
+    printf("%d",array2[j]);
+  }
+}
+
 
 
 
@@ -27,6 +67,9 @@ void binario(int resultado){
 int main(void) {
   int x;
   printf("digite 1 para converter um decimal;\n");
+  printf("digite 2 para converter de decimal para base com sinal com 16 bits;\n");
+  printf("digite 3 para converter real em decimal para float e double,;\n");
+  
   scanf("%d", &x);
   if(x==1){
     int escolha;
@@ -42,6 +85,14 @@ int main(void) {
     
     if(escolha == 1){
       binario(nDecimal);
+    } else if(escolha == 2){
+      
     }
+  }
+  if(x==2){
+    int nDecimal;
+    printf("Digite o numero para ser convertido; ");
+    scanf("%d", &nDecimal);
+    complementoa2(nDecimal);
   }
 }
