@@ -59,6 +59,32 @@ void complementoa2(int resultado){
   }
 }
 
+void base8(int resultado){
+  int resto, x, array[100], i=0;
+  while(resultado != 0){
+    resto = resultado % 8;
+    resultado = resultado / 8;
+    array[i] = resto;
+    i++;
+  }  
+  for(int j=i;j>0;j--){
+    printf("%d",array[j-1]);
+  }
+}
+
+void base16(int resultado){
+  int resto, x, array[100], i=0;
+  while(resultado != 0){
+    resto = resultado % 16;
+    resultado = resultado / 16;
+    array[i] = resto;
+    i++;
+  }  
+  for(int j=i;j>0;j--){
+    printf("%d",array[j-1]);
+  }
+}
+
 
 
 
@@ -86,7 +112,9 @@ int main(void) {
     if(escolha == 1){
       binario(nDecimal);
     } else if(escolha == 2){
-      
+      base8(nDecimal);
+    } else if(escolha == 3){
+      base16(nDecimal);
     }
   }
   if(x==2){
