@@ -1,8 +1,20 @@
+//Autor: Lucas Ferreira Sukar Wanderley (lfsw)
+//https://github.com/LucasSukar/calculasdora-B.git
+//Criaão: 21 de Agosto 2024
+//commit 1: q1 A - 21/08/2024 10:30
+//commit 2: q2 - 22/08/2024 10:25
+//commit 3: q1 letras B e C - 22/08/2024 15:24
+//commit 4: q1 letra D e correcao da funcao binario do q1 A- 22/08/2024 16:15
+//commit 5: correcao de erro de modulo de 2 - 22/08/2024 16:50
+//commit 6: q3 - 29/08/2024 08:43
+
+
 #include <stdio.h>
+#include <string.h>
 
 void binario(int resultado){
   int resto, x, array[100], i=0,z=resultado;
-  
+
   while(resultado != 0){
     resto = resultado%2;
     x = resultado/2;
@@ -104,19 +116,44 @@ void bcd(int resultado){
   }
 }
 
-
-
-
-
-
-
+void numprabinario(unsigned long long value, int size) {
+  for (int i = size - 1; i >= 0; i--) {
+      printf("%llu", (value >> i) & 1);
+  }
+}  
+void resultadofloat(float num) {
+  unsigned int bits;
+  memcpy(&bits, &num, sizeof(bits));
+  int sinal = (bits >> 31) & 1;
+  int exponent = (bits >> 23) & 0xFF;
+  unsigned int fracao = bits & 0x7FFFFF;
+  printf("Sinal: %d\n", sinal);
+  printf("Expoente: %d (0x%X) em binário: ", exponent - 127, exponent);
+  numprabinario(exponent, 8);
+  printf("\nFração em binário: ");
+  numprabinario(fracao, 23);
+  printf("\n\n");
+}
+void resultadodouble(double num) {
+  unsigned long long bits;
+  memcpy(&bits, &num, sizeof(bits));
+  int sign = (bits >> 63) & 1;
+  int exponent = (bits >> 52) & 0x7FF;
+  unsigned long long fraction = bits & 0xFFFFFFFFFFFFF;
+  printf("Sinal: %d\n", sign);
+  printf("Expoente: %d (0x%X) em binário: ", exponent - 1023, exponent);
+  numprabinario(exponent, 11);
+  printf("\nFração em binário: ");
+  numprabinario(fraction, 52);
+  printf("\n\n");
+}
 
 int main(void) {
   int x;
   printf("digite 1 para converter um decimal;\n");
   printf("digite 2 para converter de decimal para base com sinal com 16 bits;\n");
   printf("digite 3 para converter real em decimal para float e double,;\n");
-  
+
   scanf("%d", &x);
   if(x==1){
     int escolha;
@@ -125,11 +162,11 @@ int main(void) {
     printf("Digite 3 para hexa; \n");
     printf("Digite 4 para BCD; \n");
     scanf("%d", &escolha);
-    
+
     int nDecimal;
     printf("Digite o numero para ser convertido; ");
     scanf("%d", &nDecimal);
-    
+
     if(escolha == 1){
       binario(nDecimal);
     } else if(escolha == 2){
@@ -139,11 +176,17 @@ int main(void) {
     } else if(escolha == 4){
       bcd(nDecimal);
     }
-  }
-  if(x==2){
+  } else if(x==2){
     int nDecimal;
     printf("Digite o numero para ser convertido; ");
     scanf("%d", &nDecimal);
     complementoa2(nDecimal);
+  } else if(x==3){
+      float nreal;
+      printf("Digite o numero para ser convertido; ");
+      scanf("%f", &nreal);
+      printf("\n");
+      resultadofloat(nreal);
+      resultadodouble(nreal);
   }
 }
