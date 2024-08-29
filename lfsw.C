@@ -1,6 +1,6 @@
 //Autor: Lucas Ferreira Sukar Wanderley (lfsw)
 //https://github.com/LucasSukar/calculasdora-B.git
-//Criaão: 21 de Agosto 2024
+//Crição: 21 de Agosto 2024
 //commit 1: q1 A - 21/08/2024 10:30
 //commit 2: q2 - 22/08/2024 10:25
 //commit 3: q1 letras B e C - 22/08/2024 15:24
