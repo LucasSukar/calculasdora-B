@@ -14,5 +14,5 @@ commit 4: q1 letra D e correcao da funcao binario do q1 A- 22/08/2024 16:15
 
 commit 5: correcao de erro de modulo de 2 - 22/08/2024 16:50
 
-commit 6: q3 - 29/08/2024 11:14
+commit 6: q3 - 29/08/2024 08;43
 
