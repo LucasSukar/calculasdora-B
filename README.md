@@ -1,6 +1,7 @@
 # calculadora Binaria
 ______________________
 criado por: Lucas Ferreira Sukar Wanderley (lfsw)
+
 Criada dia 1 de Agosto de 2024
 _______________________
 commit 1: q1 A - 21/08/2024 10:30
